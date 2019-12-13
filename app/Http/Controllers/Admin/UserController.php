@@ -16,12 +16,20 @@ class UserController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+
+    public function __construct()
+    {
+        $this->middleware('auth');
+    } 
+
     public function index()
     {
         $users = User::paginate(10);
-
+        $loggedId = Auth::id();
+        
         return view('admin.users.index', [
-            'users' => $users
+            'users' => $users,
+            'loggedId' => $loggedId
         ]);
     }
 

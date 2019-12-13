@@ -10,6 +10,7 @@
 @endsection
 
 @section('content')
+
 <div class="card">
     <div class="card-body">
         <table class="table table-hover">
@@ -29,11 +30,13 @@
                 <td>{{$user->email}}</td>
                 <td>
                     <a href="{{route('users.edit', ['user' => $user->id])}}" class="btn btn-sm btn-info">Editar</a>
-                <form class="d-inline" action="{{route('users.destroy', ['user' => $user->id])}}" method="post" onsubmit="return confirm('Deseja realmente deletar?')">
-                @csrf
-                @method('DELETE')
-                <button class="btn btn-sm btn-danger">Excluir</button>
-                </form>
+                    @if ($loggedId !== $user->id)
+                    <form class="d-inline" action="{{route('users.destroy', ['user' => $user->id])}}" method="post" onsubmit="return confirm('Deseja realmente deletar?')">
+                        @csrf
+                        @method('DELETE')
+                        <button class="btn btn-sm btn-danger">Excluir</button>
+                    </form>
+                    @endif                    
                 </td>
                 </tr>
             @endforeach
