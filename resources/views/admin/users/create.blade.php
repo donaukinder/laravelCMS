@@ -7,12 +7,24 @@
 @endsection
 
 @section('content')
+
+@if ($errors->any())
+    <div class="alert alert-danger">
+        <ul>
+            @foreach ($errors->all() as $error)
+                <li>{{$error}}</li>
+            @endforeach
+        </ul>
+    </div>
+@endif
+
 <form action="{{route('users.store')}}" method="POST" class="form-horizontal">
+    @csrf
     <div class="form-group">
         <div class="row">
             <label class="col-sm-2 control-label">Nome Completo</label>
             <div class="col-sm-10">
-                <input type="text" name="name" class="form-control">
+            <input type="text" name="name" class="form-control" value="{{old('name')}}">
             </div>
         </div>
     </div>
@@ -20,7 +32,7 @@
         <div class="row">
             <label class="col-sm-2 control-label">E-mail</label>
             <div class="col-sm-10">
-                <input type="email" name="email" class="form-control">
+            <input type="email" name="email" class="form-control" value="{{old('email')}}">
             </div>
         </div>
     </div>
