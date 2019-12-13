@@ -18,4 +18,7 @@ Route::prefix('dashboard')->group(function () {
 
     //Logout
     Route::post('logout', 'Admin\Auth\LoginController@logout')->name('logout');
+
+    //Usuários
+    Route::resource('users', 'Admin\UserController');
 });
