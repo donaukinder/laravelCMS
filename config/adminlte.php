@@ -179,12 +179,12 @@ return [
             'icon'        => 'far fa-fw fa-file',
         ],
         [
-            'text'        => 'Minhas Páginas',
+            'text'        => 'Páginas',
             'url'         => 'dashboard/pages',
             'icon'        => 'far fa-fw fa-file',
         ],
         [
-            'text'        => 'Meus Usuários',
+            'text'        => 'Usuários',
             'url'         => 'dashboard/users',
             'icon'        => 'far fa-fw fa-file',
         ],
