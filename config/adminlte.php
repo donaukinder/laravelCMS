@@ -187,6 +187,7 @@ return [
             'text'        => 'Usuários',
             'url'         => 'dashboard/users',
             'icon'        => 'far fa-fw fa-file',
+            'can'         => 'edit-users'
         ],
         ['header' => 'account_settings'],
         [

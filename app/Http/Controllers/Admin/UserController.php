@@ -20,6 +20,7 @@ class UserController extends Controller
     public function __construct()
     {
         $this->middleware('auth');
+        $this->middleware('can:edit-users');
     } 
 
     public function index()
