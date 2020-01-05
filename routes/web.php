@@ -1,5 +1,7 @@
 <?php
 
+use Illuminate\Support\Facades\Route;
+
 //Rotas para o site
 Route::get('/', 'Site\HomeController@index');
 
