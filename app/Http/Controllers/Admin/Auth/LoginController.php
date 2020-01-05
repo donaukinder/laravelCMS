@@ -36,7 +36,7 @@ class LoginController extends Controller
     }
 
     public function authenticate(Request $request)
-    { 
+    {
         $data = $request->only([
             'email',
             'password'
