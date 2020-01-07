@@ -1,7 +1,5 @@
 <?php
 
-use Illuminate\Support\Facades\Route;
-
 //Rotas para o site
 Route::get('/', 'Site\HomeController@index');
 
@@ -23,4 +21,11 @@ Route::prefix('dashboard')->group(function () {
 
     //Usuários
     Route::resource('users', 'Admin\UserController');
+
+    //Gerenciar perfil do usuário
+    Route::get('profile', 'Admin\ProfileController@index')->name('profile');
+    Route::put('profile', 'Admin\ProfileController@save')->name('profile.save');
+
+    //Configurações gerais do site
+    Route::get('settings', 'Admin\SettingController@index')->name('settings');
 });

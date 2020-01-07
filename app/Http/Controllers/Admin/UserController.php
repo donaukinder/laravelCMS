@@ -21,13 +21,13 @@ class UserController extends Controller
     {
         $this->middleware('auth');
         $this->middleware('can:edit-users');
-    } 
+    }
 
     public function index()
     {
         $users = User::paginate(10);
         $loggedId = Auth::id();
-        
+
         return view('admin.users.index', [
             'users' => $users,
             'loggedId' => $loggedId
@@ -99,7 +99,7 @@ class UserController extends Controller
     public function edit($id)
     {
         $user = User::find($id);
-        
+
         if ($user) {
             return view('admin.users.edit', [
                 'user' => $user
@@ -132,12 +132,12 @@ class UserController extends Controller
                 'email' => $data['email']
             ],[
                'name' => ['required', 'string', 'max:255'],
-               'email' => ['required', 'string', 'max:255'] 
+               'email' => ['required', 'string', 'max:255']
             ]);
-        
+
             //Alteração do Nome
             $user->name = $data['name'];
-            
+
             //Alteração do E-mail
             if ($user->email != $data['email']) {
                 $hasEmail = User::where('email', $data['email'])->get();
@@ -146,7 +146,7 @@ class UserController extends Controller
                 }else {
                     $validator->errors()->add('email', __('validation.min.unique',[
                         'attribute' => 'email'
-                    ])); 
+                    ]));
                 }
             }
             //Verifica se vai alterar a senha, sem sim altera, se não continua como está
@@ -157,7 +157,7 @@ class UserController extends Controller
                     }else {
                         $validator->errors()->add('password', __('validation.confirmed',[
                             'attribute' => 'password'
-                        ]));    
+                        ]));
                     }
                 } else {
                     $validator->errors()->add('password', __('validation.min.string',[
@@ -166,7 +166,7 @@ class UserController extends Controller
                     ]));
                 }
             }
-            
+
             if (count($validator->errors()) > 0) {
                 return redirect()->route('users.edit', [
                     'user' => $id

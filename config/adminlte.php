@@ -189,11 +189,16 @@ return [
             'icon'        => 'far fa-fw fa-file',
             'can'         => 'edit-users'
         ],
-        ['header' => 'account_settings'],
+        ['header' => 'Configurações'],
         [
-            'text' => 'profile',
+            'text' => 'Configurações do Site',
             'url'  => 'dashboard/settings',
-            'icon' => 'fas fa-fw fa-user',
+            'icon' => 'far far-fw fa-file',
+        ],
+        [
+            'text' => 'Meu Perfil',
+            'url'  => 'dashboard/profile',
+            'icon' => 'far far-fw fa-user',
         ],
     ],
 
