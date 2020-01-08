@@ -28,4 +28,5 @@ Route::prefix('dashboard')->group(function () {
 
     //Configurações gerais do site
     Route::get('settings', 'Admin\SettingController@index')->name('settings');
+    Route::put('settings', 'Admin\SettingController@save')->name('settings.save');
 });
