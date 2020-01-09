@@ -25,6 +25,7 @@ class SettingController extends Controller
             $settings[$setting['name']] = $setting['content'];
         }
 
+
         return view('admin.settings.index', [
             'settings' => $settings
         ]);
