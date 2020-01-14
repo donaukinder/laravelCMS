@@ -16,7 +16,7 @@
         <table class="table table-hover">
             <thead>
             <tr>
-                <th>ID</th>
+                <th width="50">ID</th>
                 <th>Título</th>
                 <th>Ações</th>
             </tr>
@@ -26,7 +26,8 @@
             <tr>
             <td>{{$page->id}}</td>
             <td>{{$page->title}}</td>
-            <td>
+            <td width="180">
+                <a href="" target="_blank" class="btn btn-sm btn-success">Ver</a>
                 <a href="{{route('pages.edit', ['page' => $page->id])}}" class="btn btn-sm btn-info">Editar</a>
                 <form class="d-inline" action="{{route('pages.destroy', ['page' => $page->id])}}" method="post" onsubmit="return confirm('Deseja realmente deletar?')">
                     @csrf
