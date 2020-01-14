@@ -36,7 +36,7 @@
                         @method('DELETE')
                         <button class="btn btn-sm btn-danger">Excluir</button>
                     </form>
-                    @endif                    
+                    @endif
                 </td>
                 </tr>
             @endforeach
@@ -44,5 +44,6 @@
         </table>
     </div>
 </div>
+    <!-- paginação -->
     {{$users->links()}}
 @endsection

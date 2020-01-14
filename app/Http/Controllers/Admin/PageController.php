@@ -3,11 +3,18 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Page;
 use Illuminate\Http\Request;
-use App\Pages;
+use Illuminate\Support\Facades\Validator;
+use Illuminate\Support\Str;
 
 class PageController extends Controller
 {
+
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
     /**
      * Display a listing of the resource.
      *
@@ -15,7 +22,9 @@ class PageController extends Controller
      */
     public function index()
     {
+        $pages = Page::paginate(10);
 
+        return view('admin.pages.index', ['pages' => $pages]);
     }
 
     /**
@@ -25,7 +34,7 @@ class PageController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.pages.create');
     }
 
     /**
@@ -36,7 +45,32 @@ class PageController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $data = $request->only([
+            'title',
+            'body'
+        ]);
+
+        //Cria o slug do post (link do post)
+        $data['slug'] = Str::slug($data['title'], '-');
+
+        $validator = Validator::make($data, [
+            'title' => ['required', 'string', 'max:255'],
+            'body' => ['string'],
+            'slug' => ['required', 'string', 'max:100', 'unique:pages']
+        ]);
+
+        if ($validator->fails()) {
+            return redirect()->route('pages.create')
+                ->withErrors($validator)
+                ->withInput();
+        }
+        $pages = new Page;
+        $pages->title = $data['title'];
+        $pages->body = $data['body'];
+        $pages->slug = $data['slug'];
+        $pages->save();
+
+        return redirect()->route('pages.index');
     }
 
     /**
