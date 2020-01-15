@@ -5,7 +5,17 @@
 @section('title', 'Dashboard')
 
 @section('content_header')
-    <h1>Dashboard</h1>
+    <div class="row">
+        <div class="col-md-6">
+            <h1>Dashboard</h1>
+        </div>
+        <div class="col-md-6">
+            <select class="float-right">
+                <option>Últimos 30 dias</option>
+                <option>Últimos 60 dias</option>
+            </select>
+        </div>
+    </div>
 @endsection
 
 @section('content')
