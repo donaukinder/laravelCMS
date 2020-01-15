@@ -30,7 +30,7 @@
                     <div class="row align-items-center">
                         <div class="col-xl-3 col-lg-2">
                             <div class="logo">
-                                <a href="index.html">
+                                <a href="/">
                                 <img src="{{asset('assets/img/logo.png')}}" alt="">
                                 </a>
                             </div>
@@ -39,30 +39,13 @@
                             <div class="main-menu  d-none d-lg-block">
                                 <nav>
                                     <ul id="navigation">
-                                        <li><a class="active" href="index.html">home</a></li>
-                                        <li><a href="features.html">Features</a></li>
-                                        <li><a href="Pricing.html">Pricing</a></li>
-                                        <li><a href="#">blog <i class="ti-angle-down"></i></a>
-                                            <ul class="submenu">
-                                                <li><a href="blog.html">blog</a></li>
-                                                <li><a href="single-blog.html">single-blog</a></li>
-                                            </ul>
-                                        </li>
-                                        <li><a href="#">pages <i class="ti-angle-down"></i></a>
-                                            <ul class="submenu">
-                                                 <li><a href="elements.html">elements</a></li>
-                                            </ul>
-                                        </li>
-                                        <li><a href="contact.html">Contact</a></li>
+                                        @foreach ($front_menu as $menu_slug => $menu_title)
+                                            <li>
+                                            <a href="{{$menu_slug}}" class="active">{{$menu_title}}</a>
+                                            </li>
+                                        @endforeach
                                     </ul>
                                 </nav>
-                            </div>
-                        </div>
-                        <div class="col-xl-3 col-lg-3 d-none d-lg-block">
-                            <div class="Appointment">
-                                <div class="book_btn d-none d-lg-block">
-                                    <a  href="#">Download</a>
-                                </div>
                             </div>
                         </div>
                         <div class="col-12">
@@ -85,13 +68,12 @@
                     <div class="col-xl-4 col-md-6 col-lg-4">
                         <div class="footer_widget">
                             <div class="footer_logo">
-                                <a href="#">
-                                    <img src="img/logo.png" alt="">
+                                <a href="/">
+                                <img src="{{asset('assets/img/logo.png')}}" alt="">
                                 </a>
                             </div>
                             <p>
-                                Firmament morning sixth subdue darkness
-                                creeping gathered divide.
+                               {{$front_config['subtitle']}}
                             </p>
                             <div class="socail_links">
                                 <ul>
@@ -118,28 +100,16 @@
                     <div class="col-xl-2 offset-xl-1 col-md-6 col-lg-3">
                         <div class="footer_widget">
                             <h3 class="footer_title">
-                                    Services
+                                    Menu
                             </h3>
                             <ul>
-                                <li><a href="#">Team management</a></li>
-                                <li><a href="#">Collaboration</a></li>
-                                <li><a href="#">Todo</a></li>
-                                <li><a href="#">Events</a></li>
+                                @foreach ($front_menu as $menu_slug => $menu_title)
+                                <li>
+                                    <a href="{{$menu_slug}}" class="active">{{$menu_title}}</a>
+                                </li>
+                            @endforeach
                             </ul>
 
-                        </div>
-                    </div>
-                    <div class="col-xl-2 col-md-6 col-lg-2">
-                        <div class="footer_widget">
-                            <h3 class="footer_title">
-                                    Useful Links
-                            </h3>
-                            <ul>
-                                <li><a href="#">Pricing</a></li>
-                                <li><a href="#">Features</a></li>
-                                <li><a href="#">Blog</a></li>
-                                <li><a href="#">Contact</a></li>
-                            </ul>
                         </div>
                     </div>
                     <div class="col-xl-3 col-md-6 col-lg-3">

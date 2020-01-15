@@ -33,3 +33,5 @@ Route::prefix('dashboard')->group(function () {
     Route::get('settings', 'Admin\SettingController@index')->name('settings');
     Route::put('settings', 'Admin\SettingController@save')->name('settings.save');
 });
+
+Route::fallback('Site\PageController@index');

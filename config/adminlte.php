@@ -176,24 +176,24 @@ return [
         [
             'text'        => 'Dashboard',
             'url'         => 'dashboard',
-            'icon'        => 'far fa-fw fa-file',
+            'icon'        => 'fas fa-tachometer-alt',
         ],
         [
             'text'        => 'Páginas',
             'url'         => 'dashboard/pages',
-            'icon'        => 'far fa-fw fa-file',
+            'icon'        => 'far fa-fw fa-file-alt',
         ],
         [
             'text'        => 'Usuários',
             'url'         => 'dashboard/users',
-            'icon'        => 'far fa-fw fa-file',
+            'icon'        => 'fas fa-users',
             'can'         => 'edit-users'
         ],
         ['header' => 'Configurações'],
         [
             'text' => 'Configurações do Site',
             'url'  => 'dashboard/settings',
-            'icon' => 'far far-fw fa-file',
+            'icon' => 'fas fa-sliders-h',
         ],
         [
             'text' => 'Meu Perfil',
