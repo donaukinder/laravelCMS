@@ -10,10 +10,14 @@
             <h1>Dashboard</h1>
         </div>
         <div class="col-md-6">
-            <select class="float-right">
-                <option>Últimos 30 dias</option>
-                <option>Últimos 60 dias</option>
-            </select>
+            <form method="get">
+                <select onchange="this.form.submit()" name="interval" class="float-right">
+                    <option {{$dateInterval==30?'selected="selected"':''}} value="30">Últimos 30 dias</option>
+                    <option {{$dateInterval==60?'selected="selected"':''}} value="60">Últimos 2 meses</option>
+                    <option {{$dateInterval==90?'selected="selected"':''}} value="90">Últimos 3 meses</option>
+                    <option {{$dateInterval==180?'selected="selected"':''}} value="180">Últimos 6 meses</option>
+                </select>
+            </form>
         </div>
     </div>
 @endsection
