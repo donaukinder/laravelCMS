@@ -28,7 +28,7 @@ class AppServiceProvider extends ServiceProvider
     public function boot()
     {
         //Menu
-       $frontMenu = [
+       /*$frontMenu = [
             '/' => 'Home'
         ];
 
@@ -46,6 +46,6 @@ class AppServiceProvider extends ServiceProvider
         }
 
         View::share('front_config', $config);
-
+        */
     }
 }
