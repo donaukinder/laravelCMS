@@ -13,8 +13,6 @@ class AdminController extends Controller
     public function __construct()
     {
         $this->middleware('auth');
-
-        dd("aqui é uma alteracao");
     }
 
     public function index(Request $request)
